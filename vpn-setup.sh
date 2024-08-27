@@ -115,6 +115,18 @@ echo "Created ./pki/private/me.pem"
 echo "Created ./pki/certs/me.pem"
 echo
 
+echo "ls -lah ./pki/private/"
+ls -lah ./pki/private/
+echo 
+
+echo "ls -lah ./pki/certs/"
+ls -lah ./pki/certs/
+echo 
+
+echo "ls -lah ./pki/cacerts/"
+ls -lah ./pki/cacerts/
+echo 
+
 echo "Copy ./pki/* to /etc/ipsec.d/"
 cp -r ./pki/* /etc/ipsec.d/
 echo
@@ -216,11 +228,6 @@ EOF
 sysctl -p
 echo
 
-
-ls -lah ./pki/private/
-ls -lah ./pki/certs/
-ls -lah ./pki/cacerts/
-echo 
 
 echo "less /etc/ipsec.conf"
 echo
