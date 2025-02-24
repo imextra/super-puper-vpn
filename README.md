@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This is a fast way to run your own VPN server on Ubuntu / Debian with IPsec IKEv2 protocol connection. Easy to install: download script file and run it to install all components and configure VPS server.
+This is a fast way to run your own VPN server on Ubuntu / Debian with IPsec IKEv2 protocol connection.
+
+Easy to install: download script file and run it as `root` to install all components and configure VPS server.
 
 For ios, macos devises you can connect to VPS server via certificates (super easy way), for others (android, windows, keenetic) - via login and password.
 

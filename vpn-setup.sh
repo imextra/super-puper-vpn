@@ -6,7 +6,15 @@
 # - Strongswan & plugins
 # - iptables
 # - zsh
+#
+# RUN AS ROOT
 # ===================
+
+echo "================================"
+echo "RUN AS ROOT"
+echo "================================"
+echo
+
 
 echo "================================"
 echo "Script started"
@@ -52,12 +60,20 @@ echo
 
 while [ "$networkInterfaceConfirmation" != "Y" ]
 do
-  read -p "Enter network interface: " -r networkInterface
+  read -p "Enter your's network interface: " -r networkInterface
   echo
   read -p "Network Interface is $networkInterface. Are you sure? (Y/n): " -r networkInterfaceConfirmation
   echo
 done
 
+
+while [ "$sshConnectionPortConfirmation" != "Y" ]
+do
+  read -p "Enter your's SSH connection port (22): " -r sshConnectionPort
+  echo
+  read -p "SSH connection port is $sshConnectionPort. Are you sure? (Y/n): " -r sshConnectionPortConfirmation
+  echo
+done
 
 #echo "Go to /etc/ipsec.d/"
 #cd /etc/ipsec.d
@@ -247,7 +263,7 @@ iptables -F
 iptables -Z
 
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport $sshConnectionPort -j ACCEPT
 
 iptables -A INPUT -i lo -j ACCEPT
 
